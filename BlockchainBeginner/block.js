@@ -10,3 +10,4 @@ class Block {
 
 const block1 = new Block({ timestamp: '01/01/01', lastHash: 'foo-lasthash', hash: 'foo-hash', data: 'foo-data' });
 console.log(block1);
+module.exports = Block;
