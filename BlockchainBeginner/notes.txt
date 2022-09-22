@@ -6,3 +6,4 @@ npm -v
 mkdir crptochain
 cd cryptochain/
 
+run cmd-----> node(classNme).js
