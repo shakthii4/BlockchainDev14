@@ -1,7 +1,9 @@
-const { date } = require("assert-plus");
-const { GENESIS_DATA } = require("./config");
-const cryptoHash = require("./crypto-hash");
+const { GENESIS_DATA } = require('./config');
+const cryptoHash = require('./crypto-hash');
 
+const CreateHash = (data) => {
+  return data + '*';
+}
 class Block {
   constructor({ timestamp, lastHash, hash, data }) {
     this.timestamp = timestamp;
@@ -9,11 +11,12 @@ class Block {
     this.hash = hash;
     this.data = data;
   }
+
   static genesis() {
-    return new this(GENESIS_DATA);
+    return new Block(GENESIS_DATA);
   }
   static mineBlock({ lastBlock, data }) {
-    const timestamp = Date.now;
+    const timestamp = Date.now();
     const lastHash = lastBlock.hash;
     return new this({
       timestamp,
@@ -24,10 +27,11 @@ class Block {
 
   }
 
+  // const block1=new Block({timestamp:'foo-timestamp',lastHash:'foo-lasthash',hash:'foo-hash',data:'foo-data'});
+  // console.log('block1',block1);
+
+  // const block2=new Block({timestamp:'zoo-timestamp',lastHash:'zoo-lasthash',hash:'zoo-hash',data:'zoo-data'});
+  // console.log('block2',block2);
 }
 
-
-
-// const block1=new Block({timestamp:'01/01/01',lastHash:'foo-lasthash',hash:'foo-hash',data:'foo-data'});
-// console.log(block1);
 module.exports = Block;
